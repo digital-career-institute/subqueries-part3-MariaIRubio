@@ -39,6 +39,9 @@ INSERT INTO Applicants VALUES
 	(502, 'Lisa Scientist', 4, 'PhD in Physics', 102),
 	(503, 'Mark Engineer', 5, 'Bachelors in Mechanical Engineering', 103),
 	(504, 'Emily COmmunicator', 3, 'Bachelors in Communication', 104);
+
+INSERT INTO Applicants VALUES
+	(505, 'Maria Ibanez', 1, 'Software Developer', null);
  ```
 
 ![dataentrytable1](https://github.com/NootanVijapure/subqueries_part3/assets/30225165/c91699b4-e1ba-4b55-bd64-f4ac7dbd3417)
@@ -60,7 +63,7 @@ SELECT
  j.Department 
 FROM 
  Applicants a
-JOIN 
+LEFT JOIN 
  JobOpenings j ON j.JobID = a.AppliedForJobID;
  ```
 ## 3. Qualified Applicants:
