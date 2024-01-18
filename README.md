@@ -1,9 +1,46 @@
 # Table 1: JobOpenings
+```SQL
+ CREATE TABLE JobOpenings (
+         JobID INT PRIMARY KEY,
+         JobTitle VARCHAR(255),
+         Department VARCHAR(255),
+         MinimumExperience INT,
+         MinimumEducation VARCHAR(255)
+);
+ ```
 # Table 2: Applicants
+```SQL
+CREATE TABLE Applicants (
+	ApplicantID INT PRIMARY KEY,
+	ApplicantName VARCHAR(255),
+	ExperienceYears INT,
+	Education VARCHAR(255),
+	AppliedForJobID INT,
+	FOREIGN KEY(AppliedForJobID) REFERENCES JobOpenings(JobID)
+);
+ ```
 
 ![tablestructure](https://github.com/NootanVijapure/subqueries_part3/assets/30225165/72f6ba1d-dbca-4bc6-aa11-f34cbbf14fb3)
 
 # data entry sample data
+```SQL
+INSERT INTO JobOpenings VALUES 
+	(101, 'Spacecraft Pilot', 'Flight Operations', 5, 'Bachelors in Aerospace Engineering'),
+	(102, 'Mission Specialist', 'Science', 3, 'PhD in Physics or related field'),
+	(103, 'Space Engineer', 'Engineering', 3, 'Bachelors in Mechanical Engineering'),
+	(104, 'Communications Officer', 'Communication', 2, 'Bachelors in Communication');
+	
+UPDATE JobOpenings SET MinimumEducation = 'PhD in Physics' WHERE JobID = 102;
+ ```
+
+```SQL
+INSERT INTO Applicants VALUES
+	(501, 'John Astronaut', 7, 'Masters in Aerospace Engineering', 101),
+	(502, 'Lisa Scientist', 4, 'PhD in Physics', 102),
+	(503, 'Mark Engineer', 5, 'Bachelors in Mechanical Engineering', 103),
+	(504, 'Emily COmmunicator', 3, 'Bachelors in Communication', 104);
+ ```
+
 ![dataentrytable1](https://github.com/NootanVijapure/subqueries_part3/assets/30225165/c91699b4-e1ba-4b55-bd64-f4ac7dbd3417)
 ![dataentrytable2](https://github.com/NootanVijapure/subqueries_part3/assets/30225165/c6250e16-afa8-402e-81ce-36e5d2c1e626)
 
